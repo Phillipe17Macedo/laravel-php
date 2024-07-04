@@ -16,7 +16,7 @@ class ProductController extends Controller
         $products = $product->all();
         //print_r($products);
         //die();
-        return view('product.index', compact('$products'));
+        return view('product.index', compact('products'));
     }
 
     /**
@@ -38,7 +38,6 @@ class ProductController extends Controller
             [
                 'name' => 'required|string|max:255',
                 'description' => 'required|string',
-                'price' => 'required|number|min:0',
                 'quantity' => 'required|numeric|min:0'
             ]
             );

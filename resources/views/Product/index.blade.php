@@ -30,5 +30,5 @@
         </tbody>
     </table>
 </body>
-<a href="{{routes('products.create')}}">Cadastrar</a>
+<a href="{{route('products.create')}}">Cadastrar</a>
 </html>

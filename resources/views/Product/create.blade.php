@@ -53,7 +53,8 @@
 <body>
     <div class="container">
         <h1>Create Product Blade</h1>
-        <form action="#" method="post">
+        <form action="{{route('products.store')}}" method="post">
+            @csrf()
             <div class="form-group">
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="name" required>
