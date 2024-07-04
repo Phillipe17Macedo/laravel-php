@@ -24,7 +24,7 @@
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->price }}</td>
-                    <td>{{ $product->stock }}</td>
+                    <td>{{ $product->quantity }}</td>
                 </tr>
             @endforeach
         </tbody>
