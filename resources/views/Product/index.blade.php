@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Index</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
     <h1>Products</h1>
@@ -12,10 +11,10 @@
     <table border="1">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Stock</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Estoque</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +24,7 @@
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->quantity }}</td>
+                    <td><a href="{{route('products.edit', $product->id)}}">Editar</a></td>
                 </tr>
             @endforeach
         </tbody>
