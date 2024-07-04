@@ -52,7 +52,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Create Product Blade</h2>
+        <h1>Create Product Blade</h1>
         <form action="#" method="post">
             <div class="form-group">
                 <label for="name">Nome:</label>
