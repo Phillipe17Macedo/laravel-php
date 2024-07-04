@@ -13,13 +13,15 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #282A36;
         }
         .container {
-            background-color: #fff;
+            background-color: #F2E49B;
+            width: 1000px;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 50px;
         }
         .form-group {
             margin-bottom: 15px;
@@ -50,26 +52,26 @@
 </head>
 <body>
     <div class="container">
-        <h2>Create Product</h2>
+        <h2>Create Product Blade</h2>
         <form action="#" method="post">
             <div class="form-group">
-                <label for="name">Name:</label>
+                <label for="name">Nome:</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="description">Description:</label>
+                <label for="description">Descrição:</label>
                 <textarea id="description" name="description" rows="4" required></textarea>
             </div>
             <div class="form-group">
-                <label for="price">Price:</label>
+                <label for="price">Preço:</label>
                 <input type="number" id="price" name="price" step="0.01" required>
             </div>
             <div class="form-group">
-                <label for="quantity">Quantity:</label>
+                <label for="quantity">Quantidade:</label>
                 <input type="number" id="quantity" name="quantity" required>
             </div>
             <div class="form-group">
-                <button type="submit">Submit</button>
+                <button type="submit">Enviar</button>
             </div>
         </form>
     </div>
