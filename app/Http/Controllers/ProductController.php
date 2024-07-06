@@ -38,7 +38,7 @@ class ProductController extends Controller
             [
                 'name' => 'required|string|max:255',
                 'description' => 'required|string',
-                'price' => 'required|numeric',
+                'price' => 'required|numeric|min:0',
                 'quantity' => 'required|numeric|min:0'
             ]
             );
@@ -52,7 +52,13 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //print_r($request)
+        $product = Product::find((int)$id);
+
+        if(isset($product)){
+            return back();
+        }
+
+        return view('product.show', compact('products'));
     }
 
     /**
@@ -65,7 +71,7 @@ class ProductController extends Controller
         if(isset($product)){
             return back();
         }
-        return view('products.edit', compact('product'));
+        return view('product.edit', compact('products'));
     }
 
     /**
@@ -93,6 +99,13 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::find((int)$id);
+
+        if(isset($product)){
+            return back();
+        }
+
+        $product->delete();
+        return redirect()->route('products.index');
     }
 }

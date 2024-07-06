@@ -6,7 +6,7 @@
     <title>Product Index</title>
 </head>
 <body>
-    <h1>Produtos Cadastrados    </h1>
+    <h1>Produtos Cadastrados</h1>
 
     <table border="1">
         <thead>
@@ -25,6 +25,7 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->quantity }}</td>
                     <td><a href="{{route('products.edit', $product->id)}}">Editar</a></td>
+                    <td><a href="{{route('products.show', $product->id)}}">Mostrar</a></td>
                 </tr>
             @endforeach
         </tbody>
