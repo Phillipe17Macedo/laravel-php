@@ -73,7 +73,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::find((int)$id);
+
+        $validatedData = $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'description' => 'required|string',
+                'price' => 'required|numeric|min:0',
+                'quantity' => 'required|numeric|min:0'
+            ]
+        );
+        $pd = $product->update($validatedData);
+        //print_r()
+        return redirect()->route('products.index');
     }
 
     /**

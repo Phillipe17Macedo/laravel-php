@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Product</title>
+    <title>Edit Product</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,24 +52,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>Create Product Blade</h1>
-        <form action="{{route('products.store')}}" method="post">
+        <h1>Edit Product Blade</h1>
+        <form action="{{route('products.update', $product->id)}}" method="post">
             @csrf()
+            @method('PUT')
             <div class="form-group">
                 <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required value={{$product->name}}>
             </div>
             <div class="form-group">
                 <label for="description">Descrição:</label>
-                <textarea id="description" name="description" rows="4" required></textarea>
+                <textarea id="description" name="description" rows="4" required>value={{$product->description}}</textarea>
             </div>
             <div class="form-group">
                 <label for="price">Preço:</label>
-                <input type="number" id="price" name="price" step="0.01" required>
+                <input type="number" id="price" name="price" step="0.01" required value={{$product->price}}>
             </div>
             <div class="form-group">
                 <label for="quantity">Quantidade:</label>
-                <input type="number" id="quantity" name="quantity" required>
+                <input type="number" id="quantity" name="quantity" required value={{$product->quantity}}>
             </div>
             <div class="form-group">
                 <button type="submit">Enviar</button>
