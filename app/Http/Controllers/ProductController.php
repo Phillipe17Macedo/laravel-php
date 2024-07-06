@@ -54,11 +54,11 @@ class ProductController extends Controller
     {
         $product = Product::find((int)$id);
 
-        if(isset($product)){
+        if(!isset($product)){
             return back();
         }
 
-        return view('product.show', compact('products'));
+        return view('product.show', compact('product'));
     }
 
     /**
@@ -68,10 +68,10 @@ class ProductController extends Controller
     {
         $product = Product::find((int)$id);
 
-        if(isset($product)){
+        if(!isset($product)){
             return back();
         }
-        return view('product.edit', compact('products'));
+        return view('product.edit', compact('product'));
     }
 
     /**
@@ -101,7 +101,7 @@ class ProductController extends Controller
     {
         $product = Product::find((int)$id);
 
-        if(isset($product)){
+        if(!isset($product)){
             return back();
         }
 
