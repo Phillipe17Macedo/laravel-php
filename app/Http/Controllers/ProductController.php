@@ -38,6 +38,7 @@ class ProductController extends Controller
             [
                 'name' => 'required|string|max:255',
                 'description' => 'required|string',
+                'price' => 'required|numeric',
                 'quantity' => 'required|numeric|min:0'
             ]
             );
