@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateProduct;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -31,18 +32,10 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUpdateProduct $request)
     {
-        $validatedData = $request->validate
-        (
-            [
-                'name' => 'required|string|max:255',
-                'description' => 'required|string',
-                'price' => 'required|numeric|min:0',
-                'quantity' => 'required|numeric|min:0'
-            ]
-            );
-        $pd = Product::create($validatedData);
+        //$validatedData = $request->validate();
+        $pd = Product::create($request->validated());
         //print_r()
         return redirect()->route('products.index');
     }
@@ -77,19 +70,11 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreUpdateProduct $request, string $id)
     {
         $product = Product::find((int)$id);
 
-        $validatedData = $request->validate(
-            [
-                'name' => 'required|string|max:255',
-                'description' => 'required|string',
-                'price' => 'required|numeric|min:0',
-                'quantity' => 'required|numeric|min:0'
-            ]
-        );
-        $pd = $product->update($validatedData);
+        $pd = $product->update($request->validated());
         //print_r()
         return redirect()->route('products.index');
     }

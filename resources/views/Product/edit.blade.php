@@ -53,6 +53,11 @@
 <body>
     <div class="container">
         <h1>Edit Product Blade</h1>
+        @if ($errors->any())
+            @foreach($errors->all() as $error)
+                {{$error}} <br>
+            @endforeach
+        @endif
         <form action="{{route('products.update', $product->id)}}" method="post">
             @csrf()
             @method('PUT')
